@@ -1,0 +1,20 @@
+<!--
+<div class="bg-info text-white m-2 p-2">
+  There are {{ model.getProducts().length }} prodocts in model
+</div>
+-->
+
+<div [ngClass]="'text-white m-2 p-2 ' + getClasses()">
+  startup!
+</div>
+
+<div ngClass="getClasses()">
+  startup!
+</div>
+
+<!-- One-way su attribute HTML -->
+<input class="form-control" [value]="model.getProduct(1)?.name || 'none' " />
+
+<div>
+  {{ model.getProduct(1)?.name || 'none' }}
+</div>
