@@ -1,8 +1,18 @@
+<div class="text-white m-2">
+    <div [ngClass]="getClassesByPosition(0)">
+        The first product is {{getProductByPosition(0).name}}.
+    </div>
+    <div [ngClass]="getClassesByPosition(1)">
+        The second product is {{getProductByPosition(1).name}}
+    </div>
+</div>
+
+
 <!--
 <div class="bg-info text-white m-2 p-2">
   There are {{ model.getProducts().length }} prodocts in model
 </div>
--->
+
 
 <div [ngClass]="'text-white m-2 p-2 ' + getClasses()">
   startup!
@@ -12,9 +22,26 @@
   startup!
 </div>
 
-<!-- One-way su attribute HTML -->
+// One-way su attribute HTML //
 <input class="form-control" [value]="model.getProduct(1)?.name || 'none' " />
 
 <div>
   {{ model.getProduct(1)?.name || 'none' }}
 </div>
+
+<div [ngClass]="getClassMap(1)">
+  {{ model.getProduct(1).name }}
+</div>
+
+<div [ngClass]="getClassMap(2)">
+  {{ model.getProduct(2).name }}
+</div>
+
+<div class="p-2 bg-warning">
+  <span [ngStyle]="getStyles(1)">first</span>
+</div>
+
+<div class="p-2 bg-warning">
+  <span [ngStyle]="getStyles(2)">second</span>
+</div>
+-->
