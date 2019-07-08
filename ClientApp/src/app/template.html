@@ -1,3 +1,88 @@
+<div class="m-2">
+
+  <div class="bg-info">
+    Selected Product: {{ selectedProduct || '(None)' }}
+  </div>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Price</th>
+    </tr>
+
+    <tr *ngFor="let item of getProducts(); let i = index;">
+      <td (mouseover)="selectedProduct=item.name">{{i + 1}}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.category }}</td>
+      <td>{{ item.price }}</td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+<!--
+  
+There are {{ getProductCount() }} products
+
+<div *ngIf="getProductCount()>4">
+  There are more than 4 products
+</div>
+
+<div *ngIf="getProductByPosition(0).name != 'Kayak' ">
+  Il primo prodotto non è Kayak
+</div>
+
+<div [ngSwitch]="getProductCount()">
+  <span *ngSwitchCase="2">Ci sono 2 prodotti</span>
+  <span *ngSwitchCase="5">Ci sono 5 prodotti</span>
+  <span *ngSwitchDefault>Caso di default</span>
+
+</div>
+
+
+___________________________________________________________________________________  
+
+ The rounded price is {{ getProductPrice(1) }} 
+
+
+The rounded price is {{ Math.floor(getProduct(1).price) }}
+  
+Next product: {{ nextProduct.name }}
+
+Counter: {{ counter = counter + 1 }}
+_________________________________________________________________________________
+
+<table class="table table-sm table-bordered">
+  <tr>
+    <th>Index</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Price</th>
+  </tr>
+
+  <ng-template
+              ngFor
+               let-item
+               [ngForOf]="getProducts()"
+               let-i="index"
+               let-odd="odd">
+    <tr>
+      <td>{{ i + 1 }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.category }}</td>
+      <td>{{ item.price }}</td>
+    </tr>
+
+  </ng-template>
+
+</table>
+_________________________________________________________________________________
+
+
 <div class="text-white m-2">
     <div [ngClass]="getClassesByPosition(0)">
         The first product is {{getProductByPosition(0).name}}.
@@ -8,11 +93,12 @@
 </div>
 
 
-<!--
+
 <div class="bg-info text-white m-2 p-2">
   There are {{ model.getProducts().length }} prodocts in model
 </div>
 
+_________________________________________________________________________________
 
 <div [ngClass]="'text-white m-2 p-2 ' + getClasses()">
   startup!
