@@ -1,6 +1,7 @@
 import { ApplicationRef, Component } from "@angular/core";
 import { Model } from "./repository.model";
 import { Product } from "./product.model";
+import { ProceduralRenderer3 } from "@angular/core/src/render3/renderer";
 
 @Component({
   selector: "app",
@@ -24,6 +25,12 @@ export class ProductComponent {
 
   getProducts(): Product[] {
     return this.model.getProducts();
+  }
+
+  selectedProduct: string;
+
+  getSelected(product: Product): boolean {
+    return product.name == this.selectedProduct;
   }
 
   //  getProductCount(): number {
