@@ -12,6 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 import { ProductComponent } from "./component";
 
+import { PaAttrDirective } from "./attr.directive";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { ProductComponent } from "./component";
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    ProductComponent
+    ProductComponent,
+    PaAttrDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
