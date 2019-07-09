@@ -1,217 +1,84 @@
-<!--
-<div class="m-2">
-
-  <div class="bg-info">
-    Selected Product: {{ selectedProduct || '(None)' }}
-  </div>
-
-  <table class="table table-bordered">
-    <tr class="bg-info">
-      <th>Index</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Price</th>
-    </tr>
-
-    <tr *ngFor="let item of getProducts(); let i = index;"
-        [class.bg-info]="getSelected(item)">
-      <td (mouseover)="selectedProduct=item.name">{{i + 1}}</td>
-      <td>{{ item.name }}</td>
-      <td>{{ item.category }}</td>
-      <td>{{ item.price }}</td>
-    </tr>
-  </table>
-</div>
--->
-<!--
-  <div class="form-group">
-    <label>Product name:</label>
-    <input #product class="form-control" (input)="false" />
-  </div>
-
-  <div class="form-group">
-    <label>Product name:</label>
-    <input (input)="selectedProduct=$event.target.value"
-           [value]="selectedProduct || '' "/>
-  </div>
-
-  <div class="form-group">
-    <label>Product name:</label>
-    <input (input)="selectedProduct=$event.target.value"
-           [value]="selectedProduct || '' "/>
-  </div>
-
-  <div class="form-group">
-    <label>Product name:</label>
-    <input [(ngModel)]="selectedProduct"/>
-  </div>
-
-  <div class="form-group">
-    <label>Product name:</label>
-    <input (input)="selectedProduct=$event.target.value"
-           [value]="selectedProduct || '' "/>
-  </div>
-
-</div>
-    -->
 <style>
-  input.ng-dirty.ng-invalid {
-  border: 2px solid #ff00000
-  }
+    input.ng-dirty.ng-invalid {
+        border: 2px solid #ff0000
+    }
 
-  input.ng-dirty.ng-valid {
-  border: 2px solid #4cff00
-  }
-
+    input.ng-dirty.ng-valid {
+        border: 2px solid #6bc502
+    }
 </style>
 
-{{ jsonProduct }}
-<br />
-<form novalidate #form="ngForm" (ngSubmit)="submitForm(form)">
+<div class="m-2">
 
-  <div *ngIf="formSubmitted && formInvalid">
-    There are problems to solve
-  </div>
+    <form novalidate #form="ngForm" (ngSubmit)="submitForm(form)">
+        <div class="bg-danger p-a-1 m-b-1" *ngIf="formSubmitted && form.invalid">
+            There are problems with the form
+            <ul>
+                <li *ngFor="let error of getFormValidationMessages(form)">
+                    {{error}}
+                </li>
+            </ul>
+        </div>
 
-  Name: <input class="form-control"
-               [(ngModel)]="newProduct.name"
-               name="name"
-               #name="ngModel"
-               required
-               minlenght="5"
-               pattern="^[A-Za-z]+$"/>
-  <br />
-  <ul class="text-danger" *ngIf="(formSubmitted || name.dirty) && name.invalid">
-    <li *ngFor="let error of getValidationMessages(name)">
-      {{ error }}
-    </li>
-</ul>  
-  <!--
-  <ul class="text-danger" *ngIf="name.dirty && name.invalid">
-    <li *ngIf="name.errors.required">
-      You must enter a name
-    </li>
-    <li *ngIf="name.errors.pattern">
-     Name can only contain letters
-    </li>
-    <li *ngIf="name.errors.minlength">
-      Min length must be {{ name.errors.minlength.requiredLength }}
-    </li>
-  </ul>
-  -->
-<!--
-  Category: <input class="form-control" [(ngModel)]="newProduct.category"/> 
-  <br />
-  Price: <input class="form-control" [(ngModel)]="newProduct.price"/> 
-  <br />
--->
-  <button class="btn btn-primary" type="submit" [disabled]="formSubmitted && form.invalid"
-          [class.btn-secondary]="formSubmitted && form.invalid">Create</button>
-</form>
-<!--
-  
-There are {{ getProductCount() }} products
+        <div class="form-group">
+            <label>Name</label>
+            <input 
+                class="form-control" 
+                name="name" 
+                [(ngModel)]="newProduct.name" 
+                #name="ngModel" 
+                required 
+                minlength="5"
+                pattern="^[A-Za-z ]+$" />
+            <ul class="text-danger list-unstyled" *ngIf="formSubmitted && name.invalid">
+                <li *ngFor="let error of getValidationMessages(name)">
+                    {{error}}
+                </li>
+            </ul>
+        </div>
 
-<div *ngIf="getProductCount()>4">
-  There are more than 4 products
+        <div class="form-group">
+            <label>Category</label>
+            <input 
+                class="form-control" 
+                name="category" 
+                [(ngModel)]="newProduct.category" 
+                #category="ngModel" 
+                required
+                minlength="5" 
+                pattern="^[A-Za-z ]+$" />
+            <ul class="text-danger list-unstyled" *ngIf="formSubmitted && category.invalid">
+                <li *ngFor="let error of getValidationMessages(category)">
+                    {{error}}
+                </li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input 
+                class="form-control" 
+                name="price" 
+                [(ngModel)]="newProduct.price" 
+                #price="ngModel" 
+                required
+                pattern="^[0-9\.]+$" />
+
+            <ul class="text-danger list-unstyled" *ngIf="formSubmitted && price.invalid">
+
+                <li *ngFor="let error of getValidationMessages(price)">
+                    {{error}}
+                </li>
+
+            </ul>
+
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="formSubmitted && form.invalid"
+            [class.btn-secondary]="formSubmitted && form.invalid">
+            Create
+        </button>
+
+    </form>
+
 </div>
-
-<div *ngIf="getProductByPosition(0).name != 'Kayak' ">
-  Il primo prodotto non è Kayak
-</div>
-
-<div [ngSwitch]="getProductCount()">
-  <span *ngSwitchCase="2">Ci sono 2 prodotti</span>
-  <span *ngSwitchCase="5">Ci sono 5 prodotti</span>
-  <span *ngSwitchDefault>Caso di default</span>
-
-</div>
-
-
-___________________________________________________________________________________  
-
- The rounded price is {{ getProductPrice(1) }} 
-
-
-The rounded price is {{ Math.floor(getProduct(1).price) }}
-  
-Next product: {{ nextProduct.name }}
-
-Counter: {{ counter = counter + 1 }}
-_________________________________________________________________________________
-
-<table class="table table-sm table-bordered">
-  <tr>
-    <th>Index</th>
-    <th>Name</th>
-    <th>Category</th>
-    <th>Price</th>
-  </tr>
-
-  <ng-template
-              ngFor
-               let-item
-               [ngForOf]="getProducts()"
-               let-i="index"
-               let-odd="odd">
-    <tr>
-      <td>{{ i + 1 }}</td>
-      <td>{{ item.name }}</td>
-      <td>{{ item.category }}</td>
-      <td>{{ item.price }}</td>
-    </tr>
-
-  </ng-template>
-
-</table>
-_________________________________________________________________________________
-
-
-<div class="text-white m-2">
-    <div [ngClass]="getClassesByPosition(0)">
-        The first product is {{getProductByPosition(0).name}}.
-    </div>
-    <div [ngClass]="getClassesByPosition(1)">
-        The second product is {{getProductByPosition(1).name}}
-    </div>
-</div>
-
-
-
-<div class="bg-info text-white m-2 p-2">
-  There are {{ model.getProducts().length }} prodocts in model
-</div>
-
-_________________________________________________________________________________
-
-<div [ngClass]="'text-white m-2 p-2 ' + getClasses()">
-  startup!
-</div>
-
-<div ngClass="getClasses()">
-  startup!
-</div>
-
-// One-way su attribute HTML //
-<input class="form-control" [value]="model.getProduct(1)?.name || 'none' " />
-
-<div>
-  {{ model.getProduct(1)?.name || 'none' }}
-</div>
-
-<div [ngClass]="getClassMap(1)">
-  {{ model.getProduct(1).name }}
-</div>
-
-<div [ngClass]="getClassMap(2)">
-  {{ model.getProduct(2).name }}
-</div>
-
-<div class="p-2 bg-warning">
-  <span [ngStyle]="getStyles(1)">first</span>
-</div>
-
-<div class="p-2 bg-warning">
-  <span [ngStyle]="getStyles(2)">second</span>
-</div>
--->
