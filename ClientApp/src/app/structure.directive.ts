@@ -19,6 +19,5 @@ export class PaStructureDirective {
       this.container.createEmbeddedView(this.child);  
     }
   }
-
-
+  
 }

@@ -6,8 +6,8 @@
     </label>
   </div>
 
-  <ng-template [paIf]="showTable">
-    <table class="table table-sm table-bordered table-striped">
+
+    <table *paIf="showTable" class="table table-sm table-bordered table-striped">
       <tr class="bg-dark text-white">
         <th></th>
         <th>Name</th>
@@ -24,9 +24,9 @@
           <td [pa-attr]="item.category == 'Soccer' ? 'bg-info' : null">
             {{item.category}}
           </td>
-          <td [pa-attr]="'bg-info'">{{item.price}}</td>
+          <td [pa-attr]="'bg-secondary'">{{item.price}}</td>
         </tr>
       </tbody>
     </table>
-  </ng-template>
+
 </div>

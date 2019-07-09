@@ -70,4 +70,5 @@ export class ProductComponent {
     });
     return messages;
   }
+  showTable: boolean = true;
 }
