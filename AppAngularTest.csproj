@@ -30,6 +30,7 @@
     <None Remove="ClientApp\src\app\datasource.model.ts" />
     <None Remove="ClientApp\src\app\product.model.ts" />
     <None Remove="ClientApp\src\app\repository.model.ts" />
+    <None Remove="ClientApp\src\app\structure.directive.ts" />
     <None Remove="ClientApp\src\app\template.html" />
   </ItemGroup>
 
@@ -39,6 +40,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\datasource.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\product.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\repository.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\structure.directive.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\template.html" />
   </ItemGroup>
 
