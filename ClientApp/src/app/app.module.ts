@@ -14,6 +14,7 @@ import { ProductComponent } from "./component";
 
 import { PaAttrDirective } from "./attr.directive";
 import { PaStructureDirective } from './structure.directive';
+import { PaIteratorDirective } from './iterator.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PaStructureDirective } from './structure.directive';
     FetchDataComponent,
     ProductComponent,
     PaAttrDirective,
-    PaStructureDirective
+    PaStructureDirective,
+    PaIteratorDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
