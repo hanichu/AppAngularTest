@@ -1,8 +1,6 @@
-import { Component, Input, ViewChildren, QueryList } from "@angular/core";
+import { Component } from "@angular/core";
 import { Model } from "./repository.model";
 import { Product } from "./product.model";
-import { PaCellColor } from "./cellColor.directive";
-import { DiscountService } from "./discount.service";
 
 
 @Component({
@@ -12,9 +10,7 @@ import { DiscountService } from "./discount.service";
 export class ProductTableComponent {
   //discounter: DiscountService = new DiscountService();
 
-  @Input("model")
-  dataModel: Model;
-
+  constructor(private dataModel: Model) {}
   getProduct(key: number): Product {
     return this.dataModel.getProduct(key);
   }

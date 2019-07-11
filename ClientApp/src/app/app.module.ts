@@ -25,6 +25,9 @@ import { PaCategoryFilterPipe } from './categoryFilter.pipe';
 import { PaDiscountDisplayComponent } from './discountDisplay.component';
 import { PaDiscountEditorComponent } from './discountEditor.component';
 import { DiscountService } from './discount.service';
+import { PaDiscountPipe } from './discount.pipe';
+import { SimpleDataSource } from './datasource.model';
+import { Model } from './repository.model';
 
 
 @NgModule({
@@ -46,7 +49,8 @@ import { DiscountService } from './discount.service';
     PaAddTaxPipe,
     PaCategoryFilterPipe,
     PaDiscountDisplayComponent,
-    PaDiscountEditorComponent
+    PaDiscountEditorComponent,
+    PaDiscountPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -58,7 +62,7 @@ import { DiscountService } from './discount.service';
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [DiscountService],
+  providers: [DiscountService, SimpleDataSource, Model],
   bootstrap: [ProductComponent]
 })
 export class AppModule { }
