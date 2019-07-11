@@ -22,6 +22,8 @@ import { ProductFormComponent } from './productForm.component';
 import { PaToggleView } from './toggleView.component';
 import { PaAddTaxPipe } from './addTax.pipe';
 import { PaCategoryFilterPipe } from './categoryFilter.pipe';
+import { PaDiscountDisplayComponent } from './discountDisplay.component';
+import { PaDiscountEditorComponent } from './discountEditor.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { PaCategoryFilterPipe } from './categoryFilter.pipe';
     ProductFormComponent,
     PaToggleView,
     PaAddTaxPipe,
-    PaCategoryFilterPipe
+    PaCategoryFilterPipe,
+    PaDiscountDisplayComponent,
+    PaDiscountEditorComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

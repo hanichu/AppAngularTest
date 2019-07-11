@@ -32,6 +32,9 @@
     <None Remove="ClientApp\src\app\cellColorSwitcher.directive.ts" />
     <None Remove="ClientApp\src\app\component.ts" />
     <None Remove="ClientApp\src\app\datasource.model.ts" />
+    <None Remove="ClientApp\src\app\discount.service.ts" />
+    <None Remove="ClientApp\src\app\discountDisplay.component.ts" />
+    <None Remove="ClientApp\src\app\discountEditor.component.ts" />
     <None Remove="ClientApp\src\app\iterator.directive.ts" />
     <None Remove="ClientApp\src\app\product.model.ts" />
     <None Remove="ClientApp\src\app\productForm.component.ts" />
@@ -50,6 +53,9 @@
     <TypeScriptCompile Include="ClientApp\src\app\cellColorSwitcher.directive.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\datasource.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\discount.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\discountDisplay.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\discountEditor.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\iterator.directive.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\product.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\productForm.component.ts" />
