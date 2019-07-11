@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { DiscountService } from './discount.service';
 
 @Component({
@@ -6,6 +6,9 @@ import { DiscountService } from './discount.service';
   template: "<div><input [(ngModel)]='discounter.discount'/></div>"
 })
 export class PaDiscountEditorComponent {
-  @Input("discounter")
-  discounter: DiscountService;
+  //@Input("discounter")
+  //discounter: DiscountService;
+
+  //Dependancy Injection
+  constructor(private discounter: DiscountService) {}
 }

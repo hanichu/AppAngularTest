@@ -6,6 +6,11 @@ import { DiscountService } from './discount.service';
   template: "<div> The discount is {{ discounter.discount}}</div>"
 })
 export class PaDiscountDisplayComponent {
-  @Input("discounter")
-  discounter: DiscountService;
+  //@Input("discounter")
+  //discounter: DiscountService;
+
+  //Dependancy Injection
+  constructor(private discounter: DiscountService) {
+
+  }
 }

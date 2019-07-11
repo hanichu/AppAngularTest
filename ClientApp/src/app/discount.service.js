@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+//@Injectable()
 var DiscountService = /** @class */ (function () {
     function DiscountService() {
         this.discountValue = 10;
