@@ -23,15 +23,5 @@ export class ProductTableComponent {
   deleteProduct(key: number) {
     this.dataModel.deleteProduct(key);
   }
-  // query sul contenuto del template
-  @ViewChildren(PaCellColor)
-  viewChildren: QueryList<PaCellColor>
 
-  ngAfterViewInit() {
-    setInterval(() => {
-      this.viewChildren.forEach((child, index) => {
-        child.setColor(index % 2 == 0 ? true : false)
-      })
-    }, 0);
-  }
 }

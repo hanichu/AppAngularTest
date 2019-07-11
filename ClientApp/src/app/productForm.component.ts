@@ -5,7 +5,7 @@ import { NgForm } from "@angular/forms";
 @Component({
   selector: "paProductForm",
   templateUrl: "productForm.component.html",
-  styleUrls: ["productForm.component.css"]
+//  styleUrls: ["productForm.component.css"]
 })
 export class ProductFormComponent {
 
