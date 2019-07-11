@@ -37,6 +37,7 @@
     <None Remove="ClientApp\src\app\discountDisplay.component.ts" />
     <None Remove="ClientApp\src\app\discountEditor.component.ts" />
     <None Remove="ClientApp\src\app\iterator.directive.ts" />
+    <None Remove="ClientApp\src\app\log.service.ts" />
     <None Remove="ClientApp\src\app\product.model.ts" />
     <None Remove="ClientApp\src\app\productForm.component.ts" />
     <None Remove="ClientApp\src\app\productTable.component.ts" />
@@ -59,6 +60,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\discountDisplay.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\discountEditor.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\iterator.directive.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\log.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\product.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\productForm.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\productTable.component.ts" />

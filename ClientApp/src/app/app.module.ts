@@ -28,6 +28,7 @@ import { DiscountService } from './discount.service';
 import { PaDiscountPipe } from './discount.pipe';
 import { SimpleDataSource } from './datasource.model';
 import { Model } from './repository.model';
+import { LogService, LOG_SERVICE, SpecialLogService } from './log.service';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { Model } from './repository.model';
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [DiscountService, SimpleDataSource, Model],
+  providers: [DiscountService, SimpleDataSource, Model, {
+    provide: LOG_SERVICE, useClass:SpecialLogService}],
   bootstrap: [ProductComponent]
 })
 export class AppModule { }
