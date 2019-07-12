@@ -1,6 +1,8 @@
 import { Injectable, InjectionToken } from "@angular/core";
 
+// IT utilizzato per prevenire eventuali omonimi
 export const LOG_SERVICE = new InjectionToken("logger");
+export const LOG_LEVEL = new InjectionToken("log_level");
 
 export enum LogLevel {
   DEBUG, INFO, ERROR
